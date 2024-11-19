@@ -1,0 +1,35 @@
+#!/bin/bash
+
+
+
+
+
+if [ $USER = root ]; then
+	echo -e "[\e[34m WARNING\t\e[0m] installing as root: using \`/usr\` path to install library."
+	lib=/usr/lib
+else
+	lib=$HOME/lib
+fi
+
+echo -e "[\e[33m PROCESS\t\e[0m] library directory: $lib"
+echo -e "[\e[33m PROCESS\t\e[0m] initializing installation"
+
+{
+	make all
+	echo -e "[\e[32m OK\t\e[0m] Library successfully made."
+} || {
+	echo -e "[\e[31m FAIL\t\e[0m] Make was not successful"
+	exit 1
+}
+
+echo -e "[\e[33m PROCESS\t\e[0m] Transfering files."
+
+
+{
+	mv -v dest/liblexer.so $lib/
+	echo -e "[\e[32m OK\t\e[0m] Succesfully moved [1] file(s)"
+} || {
+	echo -e "[\e[31m FAIL\t\e[0m] Moving was not successful"
+	exit 1
+}
+
