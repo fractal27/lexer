@@ -12,15 +12,14 @@ Installation is made using the `install_sh` program.
 ```bash
 $ sudo ./install_sh
 
-[ $${\color{lightblue}WARNING}$$       ] installing as root: using `/usr` path to install library.
-[ $${\color{orange}PROCESS}\t] library directory: /usr/lib
-[ $${\color{orange}PROCESS}\t] initializing installation
+[ WARNING    ] installing as root: using `/usr` path to install library.
+[ PROCESS    ] library directory: /usr/lib
+[ PROCESS    ] initializing installation
 gcc -shared -o dest/liblexer.so dest/lexer.o
-[ $${\color{lightgreen} OK}\t] Library successfully made.
-[ $${\color{orange}PROCESS}\t] Transfering files.
+[ OK   ] Library successfully made.
+[ PROCESS    ] Transfering files.
 copied 'dest/liblexer.so' -> '/usr/lib/liblexer.so'
 'dest/liblexer.so' removed
-[ $${\color{lightgreen} OK}\t] Succesfully moved [1] file(s)
+[ OK   ] Succesfully moved [1] file(s)
 ```
-it is also nicely colored
-
+It is also nicely colored with 'OK' being green, 'PROCESS' being orange and 'WARNING' being blue.
