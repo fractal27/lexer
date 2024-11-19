@@ -44,6 +44,9 @@
 
 # Kernel Module Compile Results
 *.mod*
+
+#destination
+dest/
 *.cmd
 .tmp_versions/
 modules.order
