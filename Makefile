@@ -10,7 +10,10 @@ OBJECT_LEXER=$(DESTINATION)/lexer.o
 SOURCE_LEXER=$(SOURCE)/lexer.c
 CC=gcc
 
-all: liblexer.so $(OBJECT_LEXER)
+all: $(DESTINATION) liblexer.so $(OBJECT_LEXER)
+
+$(DESTINATION):
+	mkdir -p $(DESTINATION)
 
 liblexer.so: $(OBJECT_LEXER)
 	$(CC) -shared -o $(DESTINATION)/liblexer.so $(OBJECT_LEXER)
