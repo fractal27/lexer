@@ -1,28 +1,33 @@
 # |--- MAKEFILE FOR ASSEMBLING THE PSEUDOCOMPILER ---|
 # |--------------------------------------------------|
 
-
-
 # constants
-DESTINATION=dest
-SOURCE=src
-OBJECT_LEXER=$(DESTINATION)/lexer.o
-SOURCE_LEXER=$(SOURCE)/lexer.c
+SOURCE=lexer
+DESTINATION=$(SOURCE)/../build
+#SOURCE_LEXER=$(SOURCE)/lexer.h
+#OBJECT_LEXER=$(DESTINATION)/lexer.o
+#TARGET_LEXER=$(DESTINATION)/liblexer.so
+TEST=$(SOURCE)/tests
+SOURCE_TEST=$(TEST)/lexer.test.c
 CC=gcc
 
-all: $(DESTINATION) liblexer.so $(OBJECT_LEXER)
+
+# Functions
+
+#all: $(DESTINATION) $(OBJECT_LEXER) $(TARGET_LEXER)
+all: $(DESTINATION)
 
 $(DESTINATION):
 	mkdir -p $(DESTINATION)
 
-liblexer.so: $(OBJECT_LEXER)
-	$(CC) -shared -o $(DESTINATION)/liblexer.so $(OBJECT_LEXER)
 
-$(OBJECT_LEXER): $(SOURCE_LEXER)
-	$(CC) -lm -c $(SOURCE_LEXER) -o $(OBJECT_LEXER)
+test:
+	cd $(TEST) && $(MAKE)
+	$(DESTINATION)/testRunner --verbose
 
-test: src/tests/Makefile src/tests/test_lexer.c
-	cd src/tests && $(MAKE)
+clean: $(OBJECT_LEXER)
+	rm $(DESTINATION)/*.*o $(DESTINATION)/testRunner
 
-.PHONY: test all
+# Commands
+.PHONY: test all clean
 

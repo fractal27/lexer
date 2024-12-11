@@ -33,6 +33,7 @@
 *.out
 *.app
 *.i*86
+*Runner
 *.x86_64
 *.hex
 

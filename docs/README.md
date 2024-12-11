@@ -11,7 +11,6 @@ Installation is made using the `install_sh` program.
 
 ```bash
 $ sudo ./install_sh
-
 ```
 
 

@@ -1,15 +1,18 @@
-/*test_lexer.c
+/* this file is lexer.test.c v0.3.0
+ * Copyright (C) fractal27 (giacomo.dominici07@gmail.com)
+ *======================================================
  * Must be compiled with `-lm lexer.c -lcriterion`
- *and criterion c testing framework must be installed in the end machine.
- * */
+ * and criterion c testing framework must be
+ * installed in the end machine.
+ */
 
 #include <stdio.h>
 #include <criterion/criterion.h>
+#define LEXER_H_IMPLEMENTATION
 #include "../lexer.h"
 
 
-static void teardown(void){
-}
+static void teardown(void){}
 
 Test(str_num, lexer,.fini = teardown) {
   lexer l;
