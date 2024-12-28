@@ -1,5 +1,5 @@
-# |--- MAKEFILE FOR ASSEMBLING THE PSEUDOCOMPILER ---|
-# |--------------------------------------------------|
+# |--- MAKEFILE FOR ASSEMBLING THE LEXER ---|
+# |-----------------------------------------|
 
 # constants
 SOURCE=lexer
